@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery</title>
+    <script type="text/javascript" src="js/jquery-3.1.0.js"></script>
+
+    <style>
+        * {
+            margin: 0 auto;
+            padding: 5px;
+        }
+    </style>
+
+    <script>
+        /**
+         * 包装集 01
+         * */
+
+        $(function () {
+//            console.log($('table').length);
+//            console.log($('tr').length);
+//            console.log($('tr').get(1));        //get得到的是一个js元素
+//            console.log($('tr').index($('tr#tr1')));    //id为tr1的元素在tr包装集中的位置
+
+            //操作多个包装集
+            //第一种方法,通过','号
+//            $('tbody tr:eq(2),tr:eq(2)').css('background', 'pink');
+            //第二种方法,通过add
+//            $('tbody tr:eq(2)').add($('tr:eq(2)')).css('color', 'red');
+//            $('tbody tr:eq(2)').add('tr:eq(2)').css('color', 'red').add('tr>th:eq(1)').css('font-size','25px');  //add方法可以不加'$'符号,注意书写的顺序
+            //not去除包装集中的某个元素
+//            $('tr').not('tr#tr1').css('color', 'red');
+            //过滤除'tr#tr1'以外的所有元素
+//            $('tr').filter('tr#tr1').css('color', 'red');   //$('tr#tr1').css('color', 'red');//第一个是过滤,第二个是选择,效果一样,意义不同
+
+            /** slice*/
+            //获取tr中第2个到第5个间的元素(下标从0开始,包含2,不包含5),得到一个新的包装集
+//            $('tr').slice(2, 5).css('background','pink');
+//            $('tr').css('color','green').slice(2, 5).css('background','pink');    //小例子
+
+            /** find*/
+            //从table中获取相应的元素,得到一个新的包装集
+//            $('table').find('#tr1 td:eq(1)').css('fontSize', '30px');
+            /** is*/
+            //is判断当前的包装集中是否存在某个元素
+//            console.log($('tr').is('#tr1'));
+//            console.log($('*').is('#tr1'));
+//            console.log($('table').is('#tr1'));
+//            console.log($('tbody').is('#tr1'));
+
+            /** children*/
+            //tbody的子元素中tr中的2个(注意,tr是tbody的直接子元素),得到一个新的包装集
+//            $('tbody').children('tr:eq(2)').css('color','red');
+
+
+            /** next*/
+            //next,id为tr1元素的下一个元素,,得到一个新的包装集
+//            $('#tr1').next().css('background', 'red');
+            //nextAll,id为tr1元素的下一组兄弟节点元素,,得到一个新的包装集
+//            $('#tr1').nextAll().css('background', 'pink');
+
+            /** parent*/
+            //parent,返回上一级的div,,得到一个新的包装集
+//            $('#s1').parent().css('color', 'red');
+            //parent,返回于上一级元素的所有的兄弟节点,得到一个新的包装集
+//            $('#s1').parents().css('color', 'red');
+            /** siblings*/
+            //返回tr下标为2的元素的所有兄弟节点元素(不包含本身),得到一个新的包装集
+//            $('tr:eq(2)').siblings('tr').css('background', 'pink');
+//            $('#s1').siblings('span').css('color', 'red');
+
+        })
+    </script>
+</head>
+<body>
+<div id="d1">
+    <p>DC</p>
+    <div>
+        <span id="s1">abc1</span>
+        <span id="s2">abc2</span>
+        <span id="s3">abc3</span>
+    </div>
+    <span id="s4">abc4</span>
+    <div>MARVEL</div>
+</div>
+<table width="500" border="1" align="align">
+    <thead>
+    <tr>
+        <th>编号</th>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>电话</th>
+        <th>地址</th>
+    </tr>
+    </thead>
+    <tbody align="center">
+    <tr id="tr1">
+        <td>1</td>
+        <td>jobs</td>
+        <td>55</td>
+        <td>777</td>
+        <td>a</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>murk</td>
+        <td>45</td>
+        <td>666</td>
+        <td>b</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>mark</td>
+        <td>35</td>
+        <td>111</td>
+        <td>c</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>jack</td>
+        <td>50</td>
+        <td>888</td>
+        <td>d</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Eason</td>
+        <td>38</td>
+        <td>520</td>
+        <td>e</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
