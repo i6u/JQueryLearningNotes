@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery</title>
+    <script type="text/javascript" src="js/jquery-3.1.0.js"></script>
+
+    <style>
+        * {
+            margin: 0 auto;
+            padding: 5px;
+        }
+    </style>
+
+    <script>
+        /**
+         * 选择器 02
+         * */
+
+        //no.1
+        $(function () {
+            //nth-child(n)
+            //tbody中第2个tr
+//            $('tbody tr:nth-child(2)').css('background', 'pink');
+            //tbody中第2个td
+//            $('tbody td:nth-child(2)').css('color', 'red');
+            //tbody中所有的奇数td
+//            $('tbody tr:nth-child(odd)').css('background', '#fff083');
+            //tr大于2的所有节点
+//            $('tr:gt(2)').css('background', 'pink');
+            //td中包含5的元素
+            $('td:contains(5)').css('background', 'pink');
+        })
+    </script>
+</head>
+<body>
+<table width="500" border="1" align="align">
+    <thead>
+    <tr>
+        <th>编号</th>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>电话</th>
+        <th>地址</th>
+    </tr>
+    </thead>
+    <tbody align="center">
+    <tr>
+        <td>1</td>
+        <td>jobs</td>
+        <td>55</td>
+        <td>777</td>
+        <td>a</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>murk</td>
+        <td>45</td>
+        <td>666</td>
+        <td>b</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>mark</td>
+        <td>35</td>
+        <td>111</td>
+        <td>c</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>jack</td>
+        <td>50</td>
+        <td>888</td>
+        <td>d</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Eason</td>
+        <td>38</td>
+        <td>520</td>
+        <td>e</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

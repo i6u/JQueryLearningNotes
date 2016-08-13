@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery</title>
+    <script type="text/javascript" src="js/jquery-3.1.0.js"></script>
+
+    <style>
+        * {
+            margin:10px;
+            padding:0;
+        }
+    </style>
+
+    <script>
+        /**
+         * 选择器 01
+         *
+         * >表示相邻的上下级,空格表示包含的上下级
+         * 兄弟节点表示同级元素
+         * */
+
+        //no.1
+        $(function () {
+            //所有a标签
+            $('a').css('text-decoration', 'none');//去掉所有a标签的下划线
+            //取出所有li中的a元素
+//            $('li a').css('color', 'green');
+            //取出所有li中第一个a
+//            $('li a:first').css('font-size', '30px');
+            //取出所有li中最后一个a
+//            $('li a:last').css('font-size', '30px');
+//            取出class为myList元素中li中的所有a标签('>'左右为相邻节点)
+//            $('.myList>li>a').css('background', 'pink');
+            //取出a标签中href属性以http开头的所有元素,加背景颜色
+//            $('a[href^=http]').css('background', '#ffe083');
+            //取出class为myList的元素中的ul中的li中a标签,加背景色
+//            $('.myList ul li:has(a)').css('background', '#ffe083');
+            //取出以pdf结尾的a标签
+//            $('a[href$=pdf]').css({background: 'green', color: '#fff',padding:'2px 20px'});
+
+            //取出id为li1元素的下行同级元素中的第一个为li元素的节点
+//            $('#li1+li').css('background', 'pink');
+            //取出id为li1元素的下行所有兄弟(同级)节点li节点
+//            $('#li1~li').css('background', 'pink');
+//            $('.myList+ul').css('background', 'pink');
+//            $('.myList~ul').css('background', 'pink');
+            //取出a标签中有title的
+//            $('a[title]').css('color', 'green');
+
+            /** 位置选择器*/
+//            $('a:first').css('border', 'double');//所有a元素中的第一个
+//            $('a:last').css('text-decoration', 'overline');//所有a元素中的最后一个
+           $('ul:only-child').css('color', 'red');//没有兄弟节点只有子节点
+
+
+//            $('li:first-child').css('background', 'pink'); //li中第一个子元素
+//            console.log($('li:first-child').length);
+//            $('li:first-child')[4].style.background = 'red';
+
+            /*计时器*/
+//            function sleep(d){
+//                for(var t = Date.now();Date.now() - t <= d;);
+//            }
+
+//            $('li:nth-child(2)').css('background','red');   //同级li中所有的第二个位置的li
+
+        })
+    </script>
+</head>
+<body>
+<ul class="myList">
+    <li>
+        <a href="http://www.jquery.com">JQuery site</a>
+        <a href="http://www.jquery.com">JQuery UI</a>
+        <ul>
+            <li><a href="css1.txt" title="mycss">CSS1</a></li>
+            <li id="li1"><a href="css2.pdf" title="css2">CSS2</a></li>
+            <li><a href="css3.html" title="this is my">CSS3</a></li>
+            <li>Basic XPath</li>
+        </ul>
+    </li>
+    <li>JQuery also supports
+        <ul>
+            <li>Custom selectors</li>
+            <li>Form selectors</li>
+        </ul>
+    </li>
+</ul>
+<ul>
+    <li>abc</li>
+    <li>cde</li>
+</ul>
+<ul>
+    <li>dwf</li>
+</ul>
+<a style="list-style: none" href="javascript:alert('css(\'text-decoration\', \'overline\')')">这是一个没有下划线,有上划线的a元素</a>
+</body>
+</html>
