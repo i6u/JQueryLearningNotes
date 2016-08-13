@@ -2,8 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>JQuery 选择器</title>
+    <title>JQuery</title>
     <script type="text/javascript" src="js/jquery-3.1.0.js"></script>
+
+    <script>
+        /**
+         * JQuery中不会出现JS的window.onload覆盖的问题
+         * */
+        $(function () {
+            alert('abc');
+        })
+        $(function () {
+            alert('efg');
+        })
+    </script>
 </head>
 <body>
 

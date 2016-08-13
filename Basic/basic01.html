@@ -4,8 +4,60 @@
     <meta charset="UTF-8">
     <title>JQuery 选择器</title>
     <script type="text/javascript" src="js/jquery-3.1.0.js"></script>
+    <script>
+        /**
+         * 每个例子独立运行,互不影响
+         * */
+
+        //no.1
+//        $(function () {
+//            $('li.abc').css('color', 'red');//选择li中class为abc元素
+//            $('#cd').css('color', 'red');//选择id为cd的元素
+//        })
+
+        //no.2
+//        $(function () {
+//            $('#hello ul li:odd').css('background', 'pink').css('color', 'blue');//操作奇数行//支持链式属性追加
+//            $('#hello ul li:even').css({fontSize: '20px', textAlign: 'center'});//操作偶数行//支持对象数组方式的属性添加
+//        })
+
+        //no.3
+        $(function () {
+            $('#hello').css({borderStyle: 'double', borderColor: 'pink'});//为id为hello的元素添加边框
+            $('li').css({listStyle:'none',textAlign: 'center'});//选择页面所有的li,去掉li的小黑点
+            /** 鼠标事件*/
+            $('li').mouseover(setColor).mouseout(setColor);
+            function setColor() {
+                $(this).toggleClass('bg');
+            }
+        })
+    </script>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:5px 100px;
+        }
+        .bg {
+            background: #ffe083;
+            color: blueviolet;
+        }
+    </style>
 </head>
 <body>
+<div id="hello">
+    <ul>
+        <li>Java SE</li>
+        <li>Java EE</li>
+        <li>Servlet JSP Tomcat</li>
+        <li class="abc">JavaScript JQuery zTree BootStrap CSS less sass scss</li>
+        <li id="cd">ORM Hibernate MyBaits SpringDateJPA</li>
+        <li>Oracle MySQL SQLServer</li>
+        <li>Spring Security Linux Shiro</li>
+        <li>Maven Git SVN</li>
+        <li>Redis MongoDB NodeJS</li>
+        <li>日志</li>
+    </ul>
+</div>
 
 </body>
 </html>

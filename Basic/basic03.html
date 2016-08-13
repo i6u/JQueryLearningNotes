@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery</title>
+    <script type="text/javascript" src="js/jquery-3.1.0.js"></script>
+    <script>
+        /**
+         * js对象转换为JQuery对象
+         * */
+//        $(function () {
+//            var hello = document.getElementById('hello');
+////            hello.css('color', 'pink'); //错误示例,hello为js的对象,不能调用JQuery的方法!
+//            $(hello).css('color', 'pink');  //通过$(xxx)把hello转换为JQuery对象
+//        });
+        /**
+         * JQuery节点转换为DOM节点
+         * */
+        $(function () {
+            $('#pid')[0].innerHTML = 'Document Object Model';// > 每个Jquery节点都是一个数组,只要取出数组中的值,这个值就是JS节点,就只能用js的方法
+        })
+
+        /**
+         * 例子:为每个li开始添加一个数字行号
+         * */
+        $(function () {
+            $('*').css({margin: '0'});
+            var lis = $('#did ul li');
+            lis.css('listStyle', 'none');
+            for (var i = 0; i < lis.length; i++) {
+                var l =lis[i];      //此时l为JS节点
+//                l.innerHTML = '(' + (i+1) + ')  ' + l.innerHTML;
+                $(l).html((i+1)+'.'+$(l).html());        //将l转换为JQuery节点进行操作
+            }
+        })
+    </script>
+</head>
+<body>
+<p id="hello">JQuery</p>
+<p id="pid">abc</p>
+
+<div id="did">
+    <ul>
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+        <li>d</li>
+        <li>e</li>
+    </ul>
+</div>
+</body>
+</html>
