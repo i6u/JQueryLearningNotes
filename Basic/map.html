@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>JQuery</title>
-    <script type="text/javascript" src="js/jquery-3.1.0.js"></script>
+    <script type="text/javascript" src="js/jquery-1.8.3.js"></script>
 
     <style>
         * {
@@ -13,28 +13,39 @@
     </style>
 
     <script>
-        /**
-         * 选择器 02
+        /** map
+         *
+         * 把包装集中元素的值(通过传入的函数确定需要返回的值)转换为一个数组
          * */
+//        $(function () {
+//            var ids = $('tbody td:nth-child(1)').map(function () {
+////                return this.innerHTML;  //此时this是JS对象
+//                return $(this).html();
+//            }).get();
+//            console.log(ids);
+//        });
 
-        //no.1
         $(function () {
-            //nth-child(n)
-            //tbody中第2个tr
-//            $('tbody tr:nth-child(2)').css('background', 'pink');
-            //tbody中第2个td
-//            $('tbody td:nth-child(2)').css('color', 'red');
-            //tbody中所有的奇数td
-//            $('tbody tr:nth-child(odd)').css('background', '#fff083');
-            //tr大于2的所有节点
-//            $('tr:gt(2)').css('background', 'pink');
-            //td中包含5的元素
-            $('td:contains(5)').css('background', 'pink');
+            var ps = $('tbody td:nth-child(1)').map(function () {
+                var n = $(this).next('td');
+                var p = {'id':$(this).html(),'name':n.html()}
+                return p;
+            }).get();
+
+
+            for (var i = 0; i < ps.length; i++) {
+                console.log(ps[i].name);
+
+            }
+
         })
+
+
     </script>
 </head>
 <body>
-<table width="500" border="1" align="center">
+<table id="t1" width="500" border="2" align="align"></table>
+<table id="t2" width="500" border="1" align="align">
     <thead>
     <tr>
         <th>编号</th>
@@ -45,7 +56,7 @@
     </tr>
     </thead>
     <tbody align="center">
-    <tr>
+    <tr id="tr1">
         <td>1</td>
         <td>jobs</td>
         <td>55</td>

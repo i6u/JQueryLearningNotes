@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery</title>
+    <script src="js/jquery-1.8.3.js"></script>
+
+    <script>
+        $(function () {
+            /** attribute 01
+             * JQuery中attr对元素属性的操作
+             *
+             * */
+
+            $('tbody tr').each(function (n) {
+
+                /** 查找属性*/
+//                console.log(this);//此处的this是tbody中的tr,是js的对象
+//                console.log($(this).attr('id'));//获得'id'属性
+
+                /** 设置属性*/
+//                $(this).attr('title',$(this).children('td:eq(1)').html());//为$('tbody tr')设置'title'属性
+                /*可以通过{}json的方式来设置属性*/
+                $(this).attr({
+                    'title': $(this).children('td:eq(1)').html(),
+                    'id': $(this).children('td:eq(0)').html(),
+                    'align': 'left',
+                    'abc':'abc'     //设置特殊属性,可以设置不是标准的属性,但是在JQuery1.4之后不再推荐使用,推荐data方法
+                });
+
+                /** 移除属性*/
+                $('tr#2').removeAttr('abc');
+            })
+
+        })
+    </script>
+</head>
+
+<body>
+<a></a>
+<table id="t2" width="500" border="1" align="center">
+    <thead>
+    <tr>
+        <th>编号</th>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>电话</th>
+        <th>地址</th>
+    </tr>
+    </thead>
+    <tbody align="center">
+    <tr id="tr1">
+        <td>1</td>
+        <td>jobs</td>
+        <td>55</td>
+        <td>777</td>
+        <td>a</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>murk</td>
+        <td>45</td>
+        <td>666</td>
+        <td>b</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>mark</td>
+        <td>35</td>
+        <td>111</td>
+        <td>c</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>jack</td>
+        <td>50</td>
+        <td>888</td>
+        <td>d</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Eason</td>
+        <td>38</td>
+        <td>520</td>
+        <td>e</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+
+</html>

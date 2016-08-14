@@ -3,38 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>JQuery</title>
-    <script type="text/javascript" src="js/jquery-3.1.0.js"></script>
-
-    <style>
-        * {
-            margin: 0 auto;
-            padding: 5px;
-        }
-    </style>
+    <script src="js/jquery-1.8.3.js"></script>
 
     <script>
-        /**
-         * 选择器 02
-         * */
-
-        //no.1
         $(function () {
-            //nth-child(n)
-            //tbody中第2个tr
-//            $('tbody tr:nth-child(2)').css('background', 'pink');
-            //tbody中第2个td
-//            $('tbody td:nth-child(2)').css('color', 'red');
-            //tbody中所有的奇数td
-//            $('tbody tr:nth-child(odd)').css('background', '#fff083');
-            //tr大于2的所有节点
-//            $('tr:gt(2)').css('background', 'pink');
-            //td中包含5的元素
-            $('td:contains(5)').css('background', 'pink');
+            /** each
+             *
+             *  小测试:把表格中的数据转换为对象,并使用JQuery的each遍历
+             * */
+
+            var ns = $('tbody td:nth-child(1)').map(function () {
+                var idn = $(this);
+                var nexts = idn.nextAll();
+                var name = $(nexts[0])
+                var age = $(nexts[1])
+                var tel = $(nexts[2])
+                var add = $(nexts[3])
+                var p = {'id':idn.html(),'name':name.html(),"age":age.html(),'tel':tel.html(),'add':add.html()}
+                return p;
+            }).get();
+
+            $(ns).each(function (n) {
+                console.log(this.id+','+this.name+','+this.age+','+this.tel+','+this.add);
+
+            })
         })
     </script>
 </head>
+
 <body>
-<table width="500" border="1" align="center">
+<table id="t2" width="500" border="1" align="center">
     <thead>
     <tr>
         <th>编号</th>
@@ -45,7 +43,7 @@
     </tr>
     </thead>
     <tbody align="center">
-    <tr>
+    <tr id="tr1">
         <td>1</td>
         <td>jobs</td>
         <td>55</td>
@@ -83,4 +81,5 @@
     </tbody>
 </table>
 </body>
+
 </html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery</title>
+    <script src="js/jquery-1.8.3.js"></script>
+
+    <script>
+        $(function () {
+            /** each
+             *
+             *  遍历
+             *
+             *  小测试:在所有的名字中添加id和age
+             * */
+
+            /** 原始做法*/
+            var ns = $('tbody td:nth-child(2)').css('color','red');     //css不会影响返回值(返回的包装集)
+//            for (var i = 0; i < ns.length; i++) {
+//                var n = ns[i];
+//                var id = $(n).prev('td').html();    //上一个为'td'的元素
+//                var age = $(n).next('td').html();   //下一个td元素
+//                n.innerHTML = id+','+n.innerHTML+','+age;
+//            }
+            /** each
+             * 在JQuery中each可以遍历所有数组对象,each中的匿名函数n表示的是数组的下标
+             * */
+            ns.each(function (n) {
+//                console.log(n+$(this).html());
+                var n = $(this);
+                var id = n.prev('td').html();
+                var age = n.next('td').html();
+                n.html(id + ',' + n.html() + ',' + age);
+            })
+
+        })
+    </script>
+</head>
+
+<body>
+<table id="t2" width="500" border="1" align="center">
+    <thead>
+    <tr>
+        <th>编号</th>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>电话</th>
+        <th>地址</th>
+    </tr>
+    </thead>
+    <tbody align="center">
+    <tr id="tr1">
+        <td>1</td>
+        <td>jobs</td>
+        <td>55</td>
+        <td>777</td>
+        <td>a</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>murk</td>
+        <td>45</td>
+        <td>666</td>
+        <td>b</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>mark</td>
+        <td>35</td>
+        <td>111</td>
+        <td>c</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>jack</td>
+        <td>50</td>
+        <td>888</td>
+        <td>d</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Eason</td>
+        <td>38</td>
+        <td>520</td>
+        <td>e</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+
+</html>
