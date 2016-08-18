@@ -13,18 +13,24 @@
 
             $('a').each(function () {
                 $('a[href^=http]').attr('target', '_blank');
+                //通过这种函数方式的attr动态设置title属性,n为当前tr的下标
+                $('tbody tr').attr('title',function (n) {
+                    return "这是第"+(n+1)+'行'+$(this).children('td:eq(1)').html();
+                })
             })
 
         })
     </script>
 </head>
 
-<body>
+<body style="text-align: center;">
 <a href="basic01.html">basic01</a>
 <a href="basic02.html">basic01</a>
 <a href="basic03.html">basic01</a>
 <a href="https://www.baidu.com">baidu</a>
 <a href="https://www.jquery.com">JQuery</a>
+<br/>
+<br/>
 <table id="t2" width="500" border="1" align="center">
     <thead>
     <tr>

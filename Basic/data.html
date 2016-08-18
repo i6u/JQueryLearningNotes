@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery</title>
+    <script src="js/jquery-1.8.3.js"></script>
+
+    <script>
+        $(function () {
+            /** data
+             *  通过JQuery的data可以为标签设置属性值,但是这样设置的属性值不会显示在页面,只有开发人员才知道
+             * */
+            var props = initHead();
+            var users = getUsers(props);
+            $(users).each(function (n) {
+//                console.log(this);
+                var user = '';
+                for (var i = 0; i < props.length; i++) {
+                    user += this[props[i]] + ',';
+                }
+//                alert(user);
+                console.log(user);
+
+            })
+
+            function getUsers(props) {
+                var users = new Array();
+                $('tbody tr').each(function (n) {
+                    var user = new Object();
+                    $(this).find('td').each(function (m) {
+                        user[props[m]] = $(this).html();
+                    });
+                    users.push(eval(user));
+                });
+                return users;
+            }
+
+
+            function initHead() {
+                $('thead th:eq(0)').data('prop', 'id');
+                $('thead th:eq(1)').data('prop', 'name');
+                $('thead th:eq(2)').data('prop', 'age');
+                $('thead th:eq(3)').data('prop', 'phone');
+                $('thead th:eq(4)').data('prop', 'address');
+
+                var props = $('thead th').map(function (n) {
+                    return $(this).data('prop');
+                }).get();
+                return props;
+            }
+        });
+
+    </script>
+</head>
+
+<body style="text-align: center;">
+<input type="button" value="The refresh" onclick="javascript: location.reload(false);"/>
+<table id="t2" width="500" border="1" align="center">
+    <thead>
+    <tr>
+        <th id="uid">编号</th>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>电话</th>
+        <th>地址</th>
+    </tr>
+    </thead>
+    <tbody align="center">
+    <tr id="tr1">
+        <td>1</td>
+        <td>jobs</td>
+        <td>55</td>
+        <td>777</td>
+        <td>a</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>murk</td>
+        <td>45</td>
+        <td>666</td>
+        <td>b</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>mark</td>
+        <td>35</td>
+        <td>111</td>
+        <td>c</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>jack</td>
+        <td>50</td>
+        <td>888</td>
+        <td>d</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Eason</td>
+        <td>38</td>
+        <td>520</td>
+        <td>e</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+
+</html>

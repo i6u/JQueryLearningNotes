@@ -15,10 +15,10 @@
             var ns = $('tbody td:nth-child(1)').map(function () {
                 var idn = $(this);
                 var nexts = idn.nextAll();
-                var name = $(nexts[0])
-                var age = $(nexts[1])
-                var tel = $(nexts[2])
-                var add = $(nexts[3])
+                var name = $(nexts[0]);
+                var age = $(nexts[1]);
+                var tel = $(nexts[2]);
+                var add = $(nexts[3]);
                 var p = {'id':idn.html(),'name':name.html(),"age":age.html(),'tel':tel.html(),'add':add.html()}
                 return p;
             }).get();
