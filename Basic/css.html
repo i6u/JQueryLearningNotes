@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery</title>
+    <script src="js/jquery-1.8.3.js"></script>
+    <script>
+        $(function () {
+            /**
+             * css
+             * 设置元素的样式
+             * css参数可以传一组属性,也可以使用链式编程
+             * 在JQuery中常用的属性,如height,width等,有单独的方法
+             * opacity设置透明度,好像是背景透明度,对,绝对是
+             * click当然就是点击事件啦
+             * */
+            $('#did').css({background:'#ff8872',fontSize:'50px',width:'auto'}).css('opacity','.5').height(200).click(function () {
+                $(this).height($(this).height()-20);
+            });
+        });
+
+    </script>
+</head>
+
+<body style="text-align: center;">
+<div id="did">这是一个DIV</div>
+</body>
+
+</html>

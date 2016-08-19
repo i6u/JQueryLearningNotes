@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery</title>
+    <script src="js/jquery-1.8.3.js"></script>
+
+    <style type="text/css">
+        .addBG {
+            background: #fff083;
+            color: white;
+        }
+
+        .bigger {
+            font-size: 30px;
+        }
+
+        .change {
+            font-family:"Abadi MT Condensed Extra Bold";
+            color: blueviolet;
+            background: #ff8872;
+        }
+
+    </style>
+    <script>
+        $(function () {
+            /**
+             * class
+             * 操作元素的class属性
+             * 添加addClass,移除removeClass,判断是否存在某个样式hasClass('xxx');
+             * */
+            $('thead th').addClass('addBG').filter('th:odd').addClass('bigger').end(); //
+            $('thead th:eq(1)').removeClass('addBG');
+            console.log($('thead th').hasClass('abc'));//判断的如果为一组元素,有一个有就返回true
+
+
+            //小例子:鼠标移动到tr上添加addBG样式,鼠标移走删除addBG样式
+            $('tbody tr').mouseover(function () {
+                $(this).addClass('addBG');
+            }).mouseout(function () {
+                $(this).removeClass('addBG');
+            });
+            /**
+             * 为了简单实现上面的效果,JQuery提供了toggleClass方法,这个方法执行时会判断,如果有这个样式就移除,如果没有就添加
+             * */
+            function changeBG() {
+                $(this).toggleClass('change');
+            }
+            $('tbody td').mouseover(changeBG).mouseout(changeBG);
+        });
+
+    </script>
+</head>
+
+<body style="text-align: center;">
+<input type="button" value="The refresh" onclick="javascript: location.reload(false);"/>
+<table id="t2" width="500" border="1" align="center">
+    <thead>
+    <tr>
+        <th id="uid">编号</th>
+        <th class="abc">姓名</th>
+        <th>年龄</th>
+        <th>电话</th>
+        <th>地址</th>
+    </tr>
+    </thead>
+    <tbody align="center">
+    <tr id="tr1">
+        <td>1</td>
+        <td>jobs</td>
+        <td>55</td>
+        <td>777</td>
+        <td>a</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>murk</td>
+        <td>45</td>
+        <td>666</td>
+        <td>b</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>mark</td>
+        <td>35</td>
+        <td>111</td>
+        <td>c</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>jack</td>
+        <td>50</td>
+        <td>888</td>
+        <td>d</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Eason</td>
+        <td>38</td>
+        <td>520</td>
+        <td>e</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+
+</html>

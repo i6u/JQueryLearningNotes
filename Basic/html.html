@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery</title>
+    <script src="js/jquery-1.8.3.js"></script>
+    <script>
+        $(function () {
+//            $('#did').html($('#did1').html());
+            /**
+             * html获取元素内所有内容,包括标签信息
+             * text只获取元素中的文本
+             * 效果,你自己试试啦,别这么懒!ok
+             * 那么懒,你还学个锤子
+             * */
+//            $('#did').html($('#did1').text());
+
+            console.log($('#did1').html());
+            console.log($('#did1').text());
+
+        });
+
+    </script>
+</head>
+
+<body style="text-align: center;">
+<div id="did">这是一个DIV</div>
+<div id="did1">
+    <ol>
+        <li>这也是一个DIV,是从上边cv下来的!</li>
+        <li>加了个ol,别人都细化你用ul,哎,我就用ol</li>
+    </ol>
+</div>
+</body>
+
+</html>

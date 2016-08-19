@@ -17,13 +17,19 @@
                 $('tbody tr').attr('title',function (n) {
                     return "这是第"+(n+1)+'行'+$(this).children('td:eq(1)').html();
                 })
-            })
+            });
+
+            $('input[type=checkbox]:eq(2)').prop('checked',true);//设置复选框被选中
+            $('input[type=checkbox]:eq(0)').prop('checked',false);//设置复选框被选中
 
         })
     </script>
 </head>
 
 <body style="text-align: center;">
+<input type="checkbox"  value="A" checked>
+<input type="checkbox"  value="B">
+<input type="checkbox"  value="C">
 <a href="basic01.html">basic01</a>
 <a href="basic02.html">basic01</a>
 <a href="basic03.html">basic01</a>
