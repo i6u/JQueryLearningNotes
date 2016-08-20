@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery</title>
+    <script src="js/jquery-1.8.3.js"></script>
+    <style>
+        hr {
+            border-top: 1px dashed #bbb;
+        }
+
+    </style>
+    <script>
+        $(function () {
+            /**
+             * JQuery节点操作
+             *
+             * */
+
+            /**
+             * append 为一个元素附加另一个元素
+             * 总结:
+             * append意思为附加,把原来的元素剪贴下来,然后附加给另一个元素,原来的元素虽然在页面上看不到,但是它并没有消失
+             * */
+            //把id为dul的元素append到id为did1的元素中
+//            $('#did1').append($('#dul'));
+            //进过上面的操作后,dul好像从页面上消失了!!!但是骚年,你太天真了,dul它还在那里,不行打印给你看
+//            console.log($('#dul').html());
+            //既然dul还在,当然可以再用啦
+//            $('.dc').append($('#dul'));
+
+            /**
+             * appendTo 把一个元素附加到另一元素中
+             * 刚好和append作用是反过来的,把附加对象和原始对象掉了个位置
+             * */
+//            $('#did1').appendTo($('#pid'));
+//            $('.dc').appendTo($('#pid'));
+
+            /**
+             * append和appendTo的区别在于
+             * append返回的包装集是append操作后的整体
+             * appendTo返回的包装集是被插入的元素
+             * !!这两种操作总,添加的元素和被添加的元素中不能存在同一个元素!!
+             * */
+//            $('#pid').append($('.dc')).css('color','red');
+//            $('.dc').appendTo($('#pid')).css('color','red');
+
+            /**
+             * append和appendTo是插入到元素之后
+             * prepend和prependTo是插入到元素之前
+             * */
+//            $('#pid').prepend($('#pid1'));
+
+            /**
+             *
+             * after插入到元素之下
+             * before插入到元素之上
+             *
+             * insertAfter和insertBefore效果如appendTo
+             *
+             * 插入元素和别插入元素处于同一级
+             * */
+//            $('#pid').after($('#did1'));
+//            $('#pid').before($('#did1'));
+            //把did2插入到pid1之下
+//            $('#did2').insertAfter($('#pid1'));、
+            //把did2插入到pid1之上
+//            $('#did2').insertBefore($('#pid1'));
+
+            /**
+             * 补充
+             * */
+            //可以添加手写元素
+//            $('#pid1').before('<div>这是动态添加的DIV元素</div>');
+            //移除元素
+//            $('#pid').remove();
+            //清空元素中的所有内容
+//            $('#dul').empty();
+            //从一个包装集中删除满足条件的元素
+//            $('#dul li').detach('li:contains(C)');
+
+            //在pid1之前添加div,然后删除pid1,这样不就是就完成的节点的替换么。。。
+//            $('#pid1').before('<div>这是动态添加的DIV元素</div>').remove();
+            //当然可以使用replaceWith和replaceAll来更优雅的完成替换
+            //效果一样,返回的包装集不一样!要看清楚,都是返回第一个位置的所操作的包装集
+            //$('p')
+//            $('p').replaceWith('<ul><li>replaceWith</li></ul>');
+            //$('<ul><li>replaceAll</li></ul>')
+//            $('<ul><li>replaceAll</li></ul>').replaceAll('p');
+
+            /**
+             * wrap 包裹
+             * 用后边的元素包裹被选择的元素
+             * */
+//            $('#pid').wrap('<a>abc</a>');
+            //对class为dc的每个元素都进行单独包裹
+//            $('.dc').wrap('<a>abc</a>');
+            //把class为dc的元素作为一个整体进行包裹
+//            $('.dc').wrapAll('<a>abc</a>');
+            /**
+             * unWrap 取消外层包裹
+             * */
+//            $('li').unwrap();
+            /**
+             * wrapInner
+             *
+             * */
+            //用<b>包裹pid2中的值,之后<b>还是被pid2包裹着,好玩不好玩啦,好玩
+//            $('#pid2').wrapInner('<b>a</b>');
+//            $('#pid2').wrapInner($('#did1'));
+
+        });
+
+    </script>
+</head>
+
+<body style="text-align: center;">
+<div id="did1" class="dc">这是第一个DIV</div>
+<hr/>
+<div id="did2" class="dc">这不是上一个DIV</div>
+<hr/>
+<div id="dul" style="border:1px dashed  #ff8872 ;">
+    这是第三个DIV
+    <ul>
+        <li>A</li>
+        <li>B</li>
+        <li>C</li>
+    </ul>
+</div>
+<hr/>
+<p id="pid">这是一个P</p>
+<hr/>
+<p id="pid1">这是第二个P</p>
+<p id="pid2">这是第三个P</p>
+</body>
+
+</html>
