@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery</title>
+    <script src="js/jquery-1.8.3.js"></script>
+    <style>
+        hr {
+            border-top: 1px dashed #bbb;
+        }
+
+    </style>
+    <script>
+        /**
+         * 全选反选的一个小例子
+         *
+         * 单独一个按钮没问题,两个按钮混着用就有BUG,求批评,求指导,求解决
+         * */
+        $(function () {
+
+
+            var flag = true;
+
+            function flagChecked() {
+                $('input[type=checkbox]').each(function (n) {
+                    if ($(this).prop('checked')) {
+                        flag = false;
+                    } else {
+                        flag = true;
+                    }
+                });
+                return flag;
+            }
+
+            $('#btn1').click(function () {
+                flagChecked();
+                if (!flag) {
+                    $('input[type=checkbox]').prop('checked', false);
+                    $(this).html('全选中');
+                } else {
+                    $('input[type=checkbox]').prop('checked', true);
+                    $(this).html('全取消');
+                }
+
+            });
+
+            $('#btn2').click(function () {
+                var cd = $('input[type=checkbox]:checked');
+                var ncd = $('input[type=checkbox]:not(:checked)');
+                cd.prop('checked', false);
+                ncd.prop('checked', true);
+                flag = false
+            })
+        });
+
+    </script>
+</head>
+
+<body style="text-align: center;">
+<div style="border: 3px double #ff8872;">
+    <div>
+        <input type="checkbox"/>
+        <input type="checkbox"/>
+        <input type="checkbox"/>
+        <input type="checkbox"/>
+        <input type="checkbox"/>
+        <input type="checkbox"/>
+        <input type="checkbox"/>
+        <input type="checkbox"/>
+        <input type="checkbox"/>
+        <input type="checkbox"/>
+        <input type="checkbox"/>
+    </div>
+    <div>
+        <button id="btn1">全选中</button>
+        <button id="btn2">反选</button>
+    </div>
+</div>
+</body>
+
+</html>
