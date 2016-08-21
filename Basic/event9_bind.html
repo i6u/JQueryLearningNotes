@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery</title>
+    <script src="js/jquery-1.8.3.js"></script>
+    <style>
+        hr {
+            border-top: 1px dashed #bbb;
+        }
+
+        li{
+            list-style: none;
+        }
+
+        .bg{
+            background: #ff8872;
+            list-style: disc;
+        }
+    </style>
+    <script>
+        /**
+         * JQuery处理事件
+         *
+         * bind使用的例子
+         * */
+        $(function () {
+
+            /**
+             * JQuery bind添加事件常用的5种方法
+             * */
+            //bind绑定多个事件,执行同一个方法(toggleClass,有样式移除样式,没有样式添加样式)
+            $('div ul li').bind('mouseover mouseout', function () {
+                $(this).toggleClass('bg');
+            });
+            //移除事件
+//            $('div ul li').unbind('mouseout');
+            //为事件添加匿名空间,在移除的时候可以利用匿名空间移除一组事件
+//            $('div ul li').bind('mouseover.test mouseout.test', function () {
+//                $(this).toggleClass('bg', 'bg1');
+//            });
+//            $('#content').bind('click.test',function () {
+//                print('abc');
+//            });
+//            $('*').unbind('.test');
+
+
+            function print(txt) {
+                $('#content').append(txt + '<br/>');
+            }
+        })
+    </script>
+</head>
+
+<body id="body">
+<div id="parent">
+    <div id="child">
+        点击看一下
+    </div>
+</div>
+<div id="content">content</div>
+<div>
+    <ul>
+        <li>A</li>
+        <li>B</li>
+        <li>C</li>
+        <li>D</li>
+        <li>E</li>
+        <li>F</li>
+    </ul>
+</div>
+</body>
+</html>

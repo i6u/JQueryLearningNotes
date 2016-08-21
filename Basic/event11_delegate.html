@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery</title>
+    <script src="js/jquery-1.8.3.js"></script>
+    <style>
+        hr {
+            border-top: 1px dashed #bbb;
+        }
+
+        li {
+            list-style: none;
+        }
+
+    </style>
+    <script>
+        /**
+         * JQuery处理事件
+         *
+         * delegate JQuery中处理事件委派的方法
+         * */
+        $(function () {
+            /**
+             * 在以下方法中$('#parent')表示事件委派的根对象
+             * delegate第一个参数为绑定事件的对象
+             * */
+            $('#parent').delegate('.abc','click',function () {
+                console.log($(this).html());
+            });
+        })
+    </script>
+</head>
+
+<body id="body">
+<div id="parent">
+    <div class="abc">A</div>
+    <div class="abc">B</div>
+</div>
+<hr>
+<div class="abc">D</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery</title>
+    <script src="js/jquery-1.8.3.js"></script>
+    <style>
+        hr {
+            border-top: 1px dashed #bbb;
+        }
+
+        li {
+            list-style: none;
+        }
+
+    </style>
+    <script>
+        /**
+         * JQuery处理事件
+         *
+         * live
+         *
+         * 使用live事件之后,就解决了bind中新添加的元素没有绑定事件的问题
+         * live是通过事件委派的方式实现
+         * 事件委派是通过事件冒泡机制实现的
+         *
+         * */
+        $(function () {
+            $('.abc').live('click', function () {
+                console.log($(this).html());
+            });
+            $('#parent').append('<div class="abc">C</div>');
+
+        })
+    </script>
+</head>
+
+<body id="body">
+<div id="parent">
+    <div class="abc">A
+    </div>
+    <div class="abc">B
+    </div>
+</div>
+</body>
+</html>

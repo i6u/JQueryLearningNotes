@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery</title>
+    <script src="js/jquery-1.8.3.js"></script>
+    <style>
+        hr {
+            border-top: 2px dashed #bbb;
+        }
+
+        li {
+            list-style: none;
+        }
+
+    </style>
+    <script>
+        /**
+         * JQuery处理事件
+         *
+         * 模拟delegate
+         * 解释live的事件委派原理
+         *
+         * 存在问题:每次都要判断事件冒泡的根对象(这里是:Document)中的事件是不是我们需要处理的对象,开销比较大
+         *
+         * */
+        $(function () {
+            /**
+             * closest
+             * 向上找到第一个符合条件的节点
+             * */
+            $('#ll').closest('li').css('color', 'pink');
+
+            /**
+             * 事件委派原理
+             * 以下操作的操作,每次点击都会冒泡到document
+             * */
+            $(document).bind('click', function (event) {
+
+                var obj = $(event.target).closest('.abc');
+                /**
+                 * 判断,如果当前点击的对象是我们需要处理的对象
+                 * 做相应的操作就ok啦
+                 * */
+                if (obj[0]) {
+                    console.log($(event.target).html());
+                }
+            });
+            $('#parent').append('<div class="abc">C</div>');
+
+        })
+    </script>
+</head>
+
+<body id="body">
+<div id="parent">
+    <div class="abc">A
+    </div>
+    <div class="abc">B
+    </div>
+</div>
+<hr>
+<div>
+    <ul>
+        <li>A</li>
+        <li>B</li>
+        <li>
+            <ul>
+                <li class="abc">C</li>
+                <li id="ll">D</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

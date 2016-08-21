@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery</title>
+    <script src="js/jquery-1.8.3.js"></script>
+    <style>
+        hr {
+            border-top: 1px dashed #bbb;
+        }
+
+        li {
+            list-style: none;
+        }
+
+    </style>
+    <script>
+        /**
+         * JQuery处理事件
+         *
+         * live中指定事件绑定的根对象
+         *
+         * */
+        $(function () {
+            /**
+             * 第二个参数(#parent)指定了相应的上下文,说明事件委派的根对象是什么
+             * */
+            $('.abc','#parent').live('click', function () {
+                console.log($(this).html());
+            });
+            /**
+             * */
+            $('#parent').append('<div class="abc">C</div>');
+            /**
+             * 因为上文中指定了事件委派的根对象是#parent,而新加入的元素在#parent之后,并没有在#parent之中,所以新加入的元素没有绑定上述的事件
+             * */
+            $('#parent').after('<div class="abc">E</div>');
+
+        })
+    </script>
+</head>
+
+<body id="body">
+<div id="parent">
+    <div class="abc">A</div>
+    <div class="abc">B</div>
+</div>
+<hr>
+<div class="abc">D</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery</title>
+    <script src="js/jquery-1.8.3.js"></script>
+    <style>
+        hr {
+            border-top: 1px dashed #bbb;
+        }
+
+        li {
+            list-style: none;
+        }
+
+    </style>
+    <script>
+        /**
+         * JQuery处理事件
+         *
+         * on
+         *
+         *
+         * */
+        $(function () {
+            /**
+             * 如果没有设置on中的第二个参数
+             * 此时.abc就是委派事件的对象,效果如同bind,不能为新添加的元素绑定事件
+             * */
+//            $('.abc').on('click',function () {
+//                console.log($(this).html());
+//            });
+
+            /**
+             * 如果这只on中的第二个参数
+             * 此时#parent就为委派的根对象,.abc就是绑定事件的对象,效果如同live、delegate,可以指定委派的根对象
+             * */
+            $('#parent').on('click','.abc',function () {
+                console.log($(this).html());
+            })
+            $('#parent').append('<div class="abc">E</div>');
+            $('#parent').after('<div class="abc">F</div>');
+        })
+    </script>
+</head>
+
+<body id="body">
+<div id="parent">
+    <div class="abc">A</div>
+    <div class="abc">B</div>
+</div>
+<hr>
+<div class="abc">D</div>
+</body>
+</html>

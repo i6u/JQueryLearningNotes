@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery</title>
+    <script src="js/jquery-1.8.3.js"></script>
+    <style>
+        hr {
+            border-top: 1px dashed #bbb;
+        }
+
+    </style>
+    <script>
+        /**
+         * JQuery处理事件
+         *
+         * trigger 触发
+         * */
+        $(function () {
+            $('#child').bind('click',function (event,a,b) {
+                print('事件源:'+event.target.id+'-------事件对象:'+event.currentTarget.id);
+                print(a+b);
+            });
+            $('a').bind('click',function (event) {
+                /**
+                 * 使用trigger可以在其他对象中调用另外一个事件,也可以为事件传递参数
+                 * trigger,被调用的事件依然存在事件冒泡
+                 * */
+
+                $('#child').trigger('click',[2,3]);
+                event.preventDefault();
+            });
+            function print(txt) {
+                $('#content').append(txt + '<br/>');
+            }
+        })
+    </script>
+</head>
+
+<body id="body">
+<div id="parent">
+    <div id="child">
+        点击看一下
+    </div>
+</div>
+<div id="content"></div>
+<a href="http://www.163.com">abc</a>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery</title>
+    <script src="js/jquery-1.8.3.js"></script>
+    <style>
+        hr {
+            border-top: 1px dashed #bbb;
+        }
+
+        #parent1, #parent2, #parent3 {
+            height: 80px;
+            width: 200px;
+            background: #d1ffd1;
+            padding: 20px;
+            margin: 20px;
+            border: 2px dashed #bbbbbb;
+        }
+
+        #child1, #child2, #child3 {
+            height: 30px;
+            width: auto;
+            background: #c9eccd;
+            position: relative;
+            padding: 10px;
+            border: 2px dashed #ff8872;
+        }
+    </style>
+    <script>
+        /**
+         * JQuery处理事件
+         *
+         * 鼠标事件
+         * mouseover mouseout
+         *
+         * JQuery取代mouseover,mouseout是解决事件冒泡问题
+         * mouseenter mouseleave
+         * */
+        $(function () {
+            $('#parent1').on('mouseover mouseout', function (event) {
+                print('事件对象' + event.target.id + ',事件类型:' + event.type);
+            });
+            $('#child1').on('mouseover mouseout', function (event) {
+                print('事件对象' + event.target.id + ',事件类型:' + event.type);
+            });
+
+
+            $('#parent2').on('mouseenter mouseleave', function () {
+                print('事件对象' + event.target.id + ',事件类型:' + event.type);
+            });
+            $('#child2').on('mouseenter mouseleave', function () {
+                print('事件对象' + event.target.id + ',事件类型:' + event.type);
+            });
+
+
+            /**
+             * hover
+             * 将二个事件函数绑定到匹配元素上，分别当鼠标指针进入和离开元素时被执行
+             *
+             * 第一个函数over,第二个函数out*/
+            $('#parent3').hover(function () {
+                print('事件对象' + event.target.id + ',事件类型:' + event.type);
+            }, function () {
+                print('事件对象' + event.target.id + ',事件类型:' + event.type);
+            });
+            $('#child3').hover(function () {
+                print('事件对象' + event.target.id + ',事件类型:' + event.type);
+            }, function () {
+                print('事件对象' + event.target.id + ',事件类型:' + event.type);
+            });
+
+            function print(txt) {
+                $('#content').append(txt + '<br/>');
+            }
+        })
+    </script>
+</head>
+
+<body id="body">
+<div id="parent1">
+    parent1
+    <div id="child1">child1</div>
+</div>
+<hr>
+<div id="parent2">
+    parent2
+    <div id="child2">child2</div>
+</div>
+<div id="parent3">
+    parent3
+    <div id="child3">child3</div>
+</div>
+<div id="content" style="font-size: 10px"></div>
+</body>
+</html>
