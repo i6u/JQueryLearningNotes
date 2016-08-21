@@ -12,4 +12,4 @@
 9. Jquery事件,绑定事件的方式,bind常用的5种方法,阻止事件冒泡和阻止事件默认事件
 10. JQuery事件,one,trigger,triggerHandler,移除事件,bind的问题
 11. 什么是事件委派,模拟事件委派,closest的使用,使用live,bind,delegate处理事件委派
-12. JQuery鼠标事件mouseenter,mouseleave
+12. JavaScript中鼠标事件的冒泡现象,JQuery鼠标事件mouseenter,mouseleave的使用,hover方法的使用
