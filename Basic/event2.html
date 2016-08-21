@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery</title>
+    <script src="js/jquery-1.8.3.js"></script>
+    <style>
+        hr {
+            border-top: 1px dashed #bbb;
+        }
+
+    </style>
+    <script>
+        /**
+         *
+         * 分析JavaScript事件
+         *
+         * DOM0级事件问题,事件覆盖
+         * */
+        $(function () {
+            $('#child')[0].onclick = function () {
+                print('a')
+            };
+            $('#child')[0].onclick = function () {
+                print('b')
+            };
+            $('#child')[0].onclick = function () {
+                print('c')
+            };
+
+            function print(txt) {
+                $('#content').append(txt+'<br/>');
+            }
+        });
+
+    </script>
+</head>
+
+<body id="body">
+<div id="parent">
+    <div id="child">
+        点击看一下
+    </div>
+</div>
+<div id="content"></div>
+</body>
+
+</html>

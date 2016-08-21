@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery</title>
+    <script src="js/jquery-1.8.3.js"></script>
+    <style>
+        hr {
+            border-top: 1px dashed #bbb;
+        }
+
+    </style>
+    <script>
+        /**
+         * 分析JavaScript事件
+         * DOM0级事件
+         * 事件冒泡和阻止事件冒泡
+         * */
+        $(function () {
+            var all = $('*');
+            for (var i = 0; i < all.length; i++) {
+                var rel = all[i];
+                rel.onclick = function (event) {
+                    //1.获取事件发生的目标
+                    //IE使用的是window.event
+                    event = event?event:window.event;
+                    //IE使用的是srcElement
+                    var target = event.target?event.target:event.srcElement;
+                    print('事件源:' + target.id + ',' + target.tagName + ',事件对象:' + this.id);
+                    //阻止事件冒泡
+//                    event.stopPropagation();
+                }
+            }
+            function print(txt) {
+                $('#content').append(txt+'<br/>');
+            }
+        });
+
+    </script>
+</head>
+
+<body id="body">
+<div id="parent">
+    <div id="child">
+        点击看一下
+    </div>
+</div>
+<div id="content"></div>
+</body>
+
+</html>

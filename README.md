@@ -8,4 +8,5 @@
 5. JQuery中data为标签设置特殊属性
 6. JQuery节点操作(附加,删除,包裹等)
 7. Form表单操作(其实就是对HTML常用的input标签的操作,获得表单的值,设置表单的值)
-8. JQuery事件(DOM0级事件,DOM2级事件,事件冒泡,事件捕获)
+8. 分析JavaScript事件(DOM0级事件,DOM2级事件,事件冒泡,事件捕获)
+9. Jquery事件
