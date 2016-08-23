@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery</title>
+    <script src="js/jquery-1.8.3.js"></script>
+    <script>
+        /**
+         * JQuery冲突问题
+         *
+         * 若项目中有其他框架也采用'$'符号进行才做,此时回合JQuery冲突
+         * 解决方法
+         * 1,使用'JQuery'代替'$'
+         * 2,使用JQuery中的noConflict()解决冲突
+         * */
+        $(function () {
+//            $('div').css('color', 'red');
+//            jQuery('div').css('color', 'red');
+//            jQuery.noConflict();// 这句话的意思是,只屏蔽掉JQuery中的'$'符号
+//            jQuery.noConflict('JQuery');// 这句话的意思是,只屏蔽掉'JQuery',当然,可以传入你需要屏蔽的字符,同样的可以使用下面的方式用新的字符替代
+            var $j = jQuery.noConflict();//这句话的意思是, 使用'$j'代替'$'
+            $j('div').css('color', 'red');
+        })
+    </script>
+</head>
+<body>
+<div> JQuery Conflict</div>
+</body>
+</html>
