@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        div {
+            background-color: #bca;
+            width: 100px;
+            border: 1px solid green;
+        }
+    </style>
+    <script src="js/jquery-1.8.3.js"></script>
+</head>
+<body>
+<button id="go">&raquo; Run</button>
+
+<div id="block">Hello!</div>
+<div id="clickme">clickme</div>
+<div id="book">book</div>
+<script>
+    /**
+     * 自动以动画,还是去翻API或者Googleba
+     * */
+
+    /* Using multiple unit types within one animation. */
+
+    $("#go").click(function () {
+        $("#block").animate({
+            width: 'toggle',
+            height: "toggle",
+            opacity: "toggle"
+        }, 1500, function () {
+            alert('abc')
+        });
+
+        $('li').animate({
+                    opacity: .5,
+                    height: '50%'
+                },
+                {
+                    step: function (now, fx) {
+                        var data = fx.elem.id + ' ' + fx.prop + ': ' + now;
+                        $('body').append('<div>' + data + '</div>');
+                    }
+                });
+    });
+
+    $('#clickme').click(function() {
+        $('#book').animate({
+            width: ['toggle', 'swing'],
+            height: ['toggle', 'swing'],
+            opacity: 'toggle'
+        }, 1000, 'linear', function() {
+            $(this).after('<div>Animation complete.</div>');
+        });
+    });
+</script>
+
+</body>
+</html>
