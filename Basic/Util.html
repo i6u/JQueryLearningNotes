@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery</title>
+    <script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+
+    <style>
+        * {
+            margin: 0 auto;
+            padding: 5px;
+        }
+    </style>
+
+    <script>
+        /**
+         * JQuery工具
+         * */
+
+        $(function () {
+
+            //检查浏览器版本
+            $.each(jQuery.browser, function(i, val) {
+                show(i + " : " + val)
+            });
+
+            //each
+            //可以遍历数组,也可以遍历对象
+            $.each([1,2,3,5],function (n,v) {   //下标,值;遍历数组
+                show(n+':'+v);
+            });
+            $.each({name:'jobs',age:55},function (n,v) {   //键,值;遍历对象
+                show(n+':'+v);
+            });
+
+            //extend,日后再议
+            var p1 = {name:'jobs',age:51,add:'xian'};
+            var p2 = {name:'mark',age:31,tel:170};
+            $.extend(p1,p2);//用p2覆盖p1(相同覆盖,不同添加),p2不改变
+            console.log(p1);
+
+            var po = new Object();
+            var pe = $.extend(po,p1,p2);//
+            console.log(p1);
+            console.log(p2);
+            console.log(pe);
+            console.log(po);
+
+            /**
+             * grep 过滤
+             * */
+            var grep1 = $.grep([1,3,5,2,8],function (n, i) {//第一个值,第二个下标
+                show(n+','+i);
+                return n%2==0;  //返回偶数
+            });
+            console.log(grep1);
+
+            //inArray
+            var count = $.inArray(2,[23,1,5,2,5]);
+            show(count); //没找到,返回-1;找到,返回下标
+
+
+
+
+            //param
+            var p3 = {name: '王五', age: 55};
+            show($.param(p3));
+
+            function show(txt) {
+                $('#view').append(txt+'<br/>');
+            }
+        })
+    </script>
+</head>
+<body>
+<div id="view"></div>
+
+Reversed - <span></span>
+
+<div>One</div>
+<div>Two</div>
+<div>Three</div>
+<script>
+    //toArray 返回一个包含jQuery对象集合中的所有DOM元素的数组。
+    function disp(divs) {
+        for (var i = 0; i < divs.length; i++) {
+            $("span").append(divs[i].innerHTML+' ');
+        }
+    }
+    console.log($("div").toArray());
+    disp( $("div").toArray().reverse() );
+</script>
+</body>
+</html>
