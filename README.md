@@ -1,6 +1,7 @@
 # JQueryLearningNotes
 ### JQuery学习笔记
-[JQuery学习资料](http://www.htmleaf.com/ziliaoku/qianduanjiaocheng/201603083198.html)
+> [JQuery学习资料](http://www.htmleaf.com/ziliaoku/qianduanjiaocheng/201603083198.html)
+
 1. JQuery语法
 2. JQuery选择器(id选择器,css选择器,属性选择器,位置选择器,常用选择器;多成屎了,不必全试,但求全看。。。)
 3. 包装集(包装集的概念,处理包装集常用的方法) [JQuery包装集学习资料](http://www.htmleaf.com/ziliaoku/qianduanjiaocheng/201602053115.html)
