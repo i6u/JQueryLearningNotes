@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>animate</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-size: 12px;
+        }
+
+        body {
+            padding: 40px;
+
+            /*设置body中文字无法被选中*/
+            -moz-user-select: none; /*火狐*/
+            -webkit-user-select: none; /*webkit浏览器*/
+            -ms-user-select: none; /*IE10*/
+            -khtml-user-select: none; /*早期浏览器*/
+            user-select: none;
+        }
+
+        .topicList {
+            width: 270px;
+            /*border: 1px solid #1269ff;*/
+        }
+
+        .topicList ul {
+            display: none;
+        }
+
+        .topicList li {
+            list-style: none;
+            padding: 10px 5px 10px 5px;
+            margin: 0px 15px 5px 15px; /*上 右 下 左*/
+            border-bottom: 1px dotted #1269ff;
+            border-left: 5px solid #637dec;
+
+            border-bottom-left-radius: 5px;
+            border-top-left-radius: 5px;
+
+        }
+
+        .topicList li a {
+            text-decoration: none;
+        }
+
+        .topicList h3 {
+            margin-bottom:5px;
+            height: 35px;;
+            background: #1269ff;
+            color: #f4ffff;
+            border-bottom: 1px dotted #637dec;
+            border-radius: 10px 10px 10px 10px; /*从左上角顺时针*/
+        }
+
+        .topicList h3 span {
+            position: relative;
+            left: 15px;
+            top: 10px;
+        }
+
+        .bg{
+            background: #637dec;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .bga{
+            color: #f4ffff;
+        }
+    </style>
+    <script src="js/jquery-1.8.3.js"></script>
+    <script src="JQueryPlugins/jquery.util.topic.js"></script>
+    <script>
+        $(function () {
+            $('#btn').toggle(function () {
+                $('.topicList input').setReadOnly(true).css('color','pink');
+            },function () {
+                $('.topicList input').setReadOnly(false);
+            })
+        })
+
+    </script>
+</head>
+<body>
+<div class="topicList">
+    <input title="text" value="JQuery Plugins">
+    <button id="btn" >click me</button>
+</div>
+</body>
+</html>

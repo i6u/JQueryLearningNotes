@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>animate</title>
+    <style>
+        * {
+            margin: 5px 0;
+            padding: 0 2px;
+            font-size: 12px;
+        }
+
+        input {
+            width: auto;
+        }
+
+        body {
+            padding: 40px;
+
+            /*设置body中文字无法被选中*/
+            -moz-user-select: none; /*火狐*/
+            -webkit-user-select: none; /*webkit浏览器*/
+            -ms-user-select: none; /*IE10*/
+            -khtml-user-select: none; /*早期浏览器*/
+            user-select: none;
+        }
+
+    </style>
+    <script src="js/jquery-1.8.3.js"></script>
+    <script src="JQueryPlugins/jquery.util.topic.js"></script>
+    <script>
+        $(function () {
+            $('#sub').click(function () {
+                var isc = $(this).prop('checked');
+                if (isc) {
+                    $('#MAddress').val($('#address').val());
+                    $('#MTell').val($('#tell').val());
+                }else {
+                    $('#MAddress').val("");
+                    $('#MTell').val('');
+                }
+            });
+            $('#mail input').setReadOnly(true);
+        });
+    </script>
+</head>
+<body>
+<div class="topicList" style="width:200px">
+    <fieldset>
+        <legend>请填写邮寄地址</legend>
+        <div id="home">
+            <fieldset>
+                <legend><h3>Home address</h3></legend>
+                add:<br/>
+                <input id="address" name="address"><br/>
+                tel:<br/>
+                <input id="tell" name="tell"><br/>
+            </fieldset>
+        </div>
+        <input type="checkbox" id="sub" style="margin: 15px 0;">是否和家庭地址一致<br/>
+        <div id="mail">
+            <fieldset>
+                <legend><h3>Mail Address</h3></legend>
+                add:<br/>
+                <input id="MAddress" name="MAddress"><br/>
+                tel:<br/>
+                <input id="MTell" name="MTell"><br/>
+            </fieldset>
+        </div>
+
+    </fieldset>
+</div>
+</body>
+</html>

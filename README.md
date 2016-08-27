@@ -15,4 +15,5 @@
 11. 什么是事件委派,模拟事件委派,closest的使用,使用live,bind,delegate处理事件委派
 12. JavaScript中鼠标事件的冒泡现象,JQuery鼠标事件mouseenter,mouseleave的使用,hover方法的使用
 13. JQuery动画,默认动画,自定义动画
-14. JQuery工具
+14. JQuery工具,判断浏览器版本,对象合并,过滤...
+15. JQuery插件,自定义插件
